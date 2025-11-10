@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Torneio ETMPAN - TOP 12 / Etapa 1 2025</title>
+<title>ETMPAN - Top 12 & Etapa 1 / 2025</title>
 
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -18,12 +18,12 @@
     width:90%;
     max-width:1000px;
     margin:40px auto;
-    background:rgba(255,255,255,0.9);
+    background:rgba(255,255,255,0.95);
     border:1px solid rgba(0,85,204,0.3);
     border-radius:16px;
     box-shadow:0 10px 30px rgba(0,85,204,0.1);
     overflow:hidden;
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
     animation:fadeIn 1s ease;
   }
 
@@ -40,12 +40,7 @@
   }
 
   header img{height:70px;}
-  header h1{
-    color:#0055cc;
-    font-size:18pt;
-    font-weight:700;
-    text-align:center;
-  }
+  header h1{color:#0055cc;font-size:18pt;font-weight:700;text-align:center;}
 
   nav{
     display:flex;
@@ -82,6 +77,9 @@
   }
   .carousel img{
     width:100%;
+    height:auto;
+    max-height:700px;
+    object-fit:cover;
     border-radius:12px;
     position:absolute;
     top:0;left:0;
@@ -100,8 +98,9 @@
   }
   h2{color:#0055cc;font-size:1.3rem;font-weight:700;margin-bottom:10px;}
   h3{color:#003c99;margin-top:15px;}
-  p{line-height:1.6;margin:10px 0;}
-  ul{margin-left:25px;margin-top:8px;}li{margin-bottom:4px;}
+  p{line-height:1.7;margin:10px 0;font-size:1rem;}
+  ul{margin-left:25px;margin-top:8px;}
+  li{margin-bottom:4px;}
 
   /* Fotos */
   .photo-section{
@@ -117,45 +116,51 @@
   }
   .photo-section.show{opacity:1;transform:scale(1);}
   .photo-section h3{
-    font-size:12pt;
-    font-weight:700;
-    color:#0055cc;
-    text-align:center;
-    margin-bottom:10px;
+    font-size:12pt;font-weight:700;color:#0055cc;text-align:center;margin-bottom:10px;
   }
   .photo-section img{
     width:100%;
+    height:auto;
+    max-height:700px;
     border-radius:12px;
     box-shadow:0 4px 15px rgba(0,0,0,0.1);
     transition:transform 0.3s ease;
   }
   .photo-section img:hover{transform:scale(1.03);}
 
-  @media(max-width:768px){
-    header{flex-direction:column;}
-    header img{height:60px;}
-    header h1{font-size:1.1rem;}
-    .container{width:95%;}
+  /* Página 4 - Release */
+  .release{
+    background:rgba(0,85,204,0.03);
+    border:1px solid #0055cc;
+    border-radius:12px;
+    padding:25px;
+    line-height:1.8;
+    text-align:justify;
+  }
+  .release h2{
+    color:#0055cc;
+    text-align:center;
+    margin-bottom:15px;
+  }
+  .release strong{
+    color:#003c99;
   }
 
   /* Lightbox */
   .lightbox{
     position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.85);
+    top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.9);
     display:flex;
     align-items:center;
     justify-content:center;
-    opacity:0;
-    visibility:hidden;
+    opacity:0;visibility:hidden;
     transition:opacity 0.4s ease;
     z-index:999;
   }
   .lightbox.active{opacity:1;visibility:visible;}
   .lightbox img{
-    max-width:90%;
-    max-height:90%;
+    max-width:90%;max-height:90%;
     border-radius:12px;
     box-shadow:0 8px 24px rgba(255,255,255,0.3);
     animation:zoomIn 0.5s ease;
@@ -164,17 +169,14 @@
 
   .nav-btn{
     position:absolute;
-    top:50%;
-    transform:translateY(-50%);
+    top:50%;transform:translateY(-50%);
     background:rgba(255,255,255,0.2);
-    color:white;
-    font-size:2rem;
-    font-weight:bold;
+    color:white;font-size:2rem;
     padding:8px 14px;
     border-radius:8px;
     cursor:pointer;
-    transition:background 0.3s;
     user-select:none;
+    transition:background 0.3s;
   }
   .nav-btn:hover{background:rgba(255,255,255,0.4);}
   #prevBtn{left:5%;}
@@ -193,13 +195,14 @@
     <a href="#" class="active" onclick="showPage(1)">Etapa</a>
     <a href="#" onclick="showPage(2)">Resultados</a>
     <a href="#" onclick="showPage(3)">Fotos</a>
+    <a href="#" onclick="showPage(4)">Release</a>
   </nav>
 
   <!-- Página 1 -->
   <div id="page1" class="page active-page">
     <div class="carousel" onclick="openLightbox(event)">
-      <img src="torneio.jpeg" class="active" alt="Torneio ETMPAN">
-      <img src="top12.jpeg" alt="Top 12 ETMPAN">
+      <img src="torneio.jpeg" class="active" alt="Torneio ETMPAN em alta definição">
+      <img src="top12.jpeg" alt="Top 12 ETMPAN HD">
     </div>
   </div>
 
@@ -207,17 +210,13 @@
   <div id="page2" class="page">
     <div class="result-box">
       <h2>🏓 ETMPAN encerra 2024 e abre 2025 com resultados espetaculares</h2>
-      <p>
-        A <strong>ETMPAN – Escola de Tênis de Mesa Professor Ângelo Neto</strong> encerrou 2024 com conquistas marcantes e iniciou 2025 com jogos de altíssimo nível técnico, consolidando-se como referência do tênis de mesa baiano.
-      </p>
-
+      <p>A <strong>ETMPAN – Escola de Tênis de Mesa Professor Ângelo Neto</strong> encerrou 2024 com conquistas marcantes e iniciou 2025 com jogos de altíssimo nível técnico, consolidando-se como referência do tênis de mesa baiano.</p>
       <h3>🏆 Paulo Carneiro é o Campeão do Ano 2024 — Tricampeão ETMPAN</h3>
       <ul>
         <li>🥇 Campeão: <strong>Paulo Carneiro</strong></li>
         <li>🥈 Vice-Campeão: <strong>Ângelo Neto</strong></li>
         <li>🥉 3º Lugar: <strong>Inigmar Veras</strong></li>
       </ul>
-
       <h3>🌟 Destaques da Temporada 2024</h3>
       <p><strong>Thiago Silva</strong> e <strong>Inigmar Veras</strong> foram reconhecidos como os <strong>Destaques do Ano</strong> pelo desempenho técnico e espírito competitivo.</p>
     </div>
@@ -225,19 +224,64 @@
 
   <!-- Página 3 -->
   <div id="page3" class="page">
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🏓 TOP 12</h3><img src="top.jpeg" alt="Top 12 ETMPAN"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🥇 1ª DIVISÃO</h3><img src="1.jpeg" alt="1ª Divisão"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🥈 2ª DIVISÃO</h3><img src="2.jpeg" alt="2ª Divisão"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🥉 3ª DIVISÃO</h3><img src="3.jpeg" alt="3ª Divisão"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🌟 DESTAQUES 2024</h3><img src="destaque.jpeg" alt="Destaques ETMPAN 2024"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🏆 CAMPEÃO DO ANO</h3><img src="campeao.jpeg" alt="Campeão ETMPAN 2024"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🏓 TOP 12</h3><img src="top.jpeg" alt="Top 12 ETMPAN HD"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🥇 1ª DIVISÃO</h3><img src="1.jpeg" alt="1ª Divisão HD"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🥈 2ª DIVISÃO</h3><img src="2.jpeg" alt="2ª Divisão HD"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🥉 3ª DIVISÃO</h3><img src="3.jpeg" alt="3ª Divisão HD"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🌟 DESTAQUES 2024</h3><img src="destaque.jpeg" alt="Destaques ETMPAN HD"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🏆 CAMPEÃO DO ANO</h3><img src="campeao.jpeg" alt="Campeão ETMPAN 2024 HD"></div>
+  </div>
+
+  <!-- Página 4 - Release Completo -->
+  <div id="page4" class="page">
+    <div class="release">
+      <h2>🏓 ETMPAN consagra os campeões da Temporada 2024 e abre 2025 com grandes disputas</h2>
+      <p>
+        A <strong>ETMPAN – Escola de Tênis de Mesa Professor Ângelo Neto</strong> segue fazendo história no tênis de mesa baiano. Encerrando a temporada 2024 e iniciando 2025 com disputas repletas de emoção e talento, o circuito reuniu atletas de destaque e novos talentos em ascensão.
+      </p>
+
+      <h3>🥇 TOP 12 – Etapa Final 2024</h3>
+      <p>
+        O encerramento da temporada foi marcado por duelos de altíssimo nível. <strong>Paulo Carneiro</strong> brilhou na grande decisão, confirmando sua excelente fase e conquistando o título máximo da temporada 2024.
+      </p>
+      <ul>
+        <li>🏆 Campeão: <strong>Paulo Carneiro</strong></li>
+        <li>🥈 Vice-Campeão: <strong>Anderson Nascimento</strong></li>
+        <li>🥉 3º Lugar: <strong>Gilton Lima</strong></li>
+        <li>🥉 3º Lugar: <strong>Eliel Barbosa</strong></li>
+      </ul>
+
+      <p><strong>Paulo Carneiro</strong> encerrou o circuito como tricampeão ETMPAN, acumulando o maior número de pontos da temporada e conquistando o título de Campeão do Ano. <strong>Ângelo Neto</strong> terminou como vice e <strong>Inigmar Veras</strong> ficou com o terceiro lugar. Os destaques da temporada foram <strong>Thiago Silva</strong> e <strong>Inigmar Veras</strong>.</p>
+
+      <h3>⚡ 1ª Etapa 2025</h3>
+      <p>Na abertura da nova temporada, grandes nomes voltaram a se enfrentar com intensidade e técnica.</p>
+      <ul>
+        <li>🥇 <strong>1ª Divisão:</strong> Campeão <strong>Anderson Nascimento</strong> | Vice <strong>Saulo Feitosa</strong> | 3º <strong>Paulo Carneiro</strong> e <strong>Inigmar Veras</strong></li>
+        <li>🥇 <strong>2ª Divisão:</strong> Campeão <strong>Eliel Barbosa</strong> | Vice <strong>Saulo Feitosa</strong> | 3º <strong>Romilton Carvalho</strong> e <strong>Maurício Sampaio</strong></li>
+        <li>🥇 <strong>3ª Divisão:</strong> Campeão <strong>Matheus Santana</strong> | Vice <strong>Maurício Sampaio</strong> | 3º <strong>Romilton Carvalho</strong> e <strong>Marcos Natal</strong></li>
+      </ul>
+
+      <p>
+        <strong>Anderson Nascimento</strong> foi um dos grandes destaques ao ser campeão da 1ª Divisão e vice do Top 12, enquanto <strong>Eliel Barbosa</strong> brilhou como campeão da 2ª Divisão e terceiro do Top 12 — ambos com atuações espetaculares.
+      </p>
+
+      <h3>💬 Mensagem Final</h3>
+      <p>
+        A cada torneio, novos talentos surgem e os experientes se reinventam. A <strong>ETMPAN</strong> se orgulha de formar atletas, promover integração e fortalecer o tênis de mesa na Bahia.
+      </p>
+
+      <p style="text-align:center;margin-top:20px;">
+        <strong>Parabéns a todos os participantes, campeões e equipes envolvidas!</strong><br>
+        O futuro do tênis de mesa baiano continua em excelentes mãos. 🏓✨
+      </p>
+    </div>
   </div>
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <span id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&#10094;</span>
-  <img src="" alt="Imagem ampliada">
+  <img src="" alt="Imagem ampliada HD">
   <span id="nextBtn" class="nav-btn" onclick="changeImage(1)">&#10095;</span>
 </div>
 
