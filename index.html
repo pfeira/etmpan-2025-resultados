@@ -26,62 +26,111 @@
     backdrop-filter:blur(10px);
     animation:fadeIn 1s ease;
   }
+
   @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
   header{
-    display:flex;align-items:center;justify-content:center;gap:15px;
-    border-bottom:2px solid #0055cc;background:#fff;padding:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    border-bottom:2px solid #0055cc;
+    background:#fff;
+    padding:15px;
   }
+
   header img{height:70px;}
-  header h1{color:#0055cc;font-size:18pt;font-weight:700;text-align:center;}
+  header h1{
+    color:#0055cc;
+    font-size:18pt;
+    font-weight:700;
+    text-align:center;
+  }
 
   nav{
-    display:flex;justify-content:center;background:#f7faff;padding:12px;gap:10px;
+    display:flex;
+    justify-content:center;
+    background:#f7faff;
+    padding:12px;
+    gap:10px;
   }
   nav a{
-    text-decoration:none;color:#0055cc;font-weight:600;
-    border:1px solid #0055cc;border-radius:24px;padding:8px 16px;transition:0.3s;
+    text-decoration:none;
+    color:#0055cc;
+    font-weight:600;
+    border:1px solid #0055cc;
+    border-radius:24px;
+    padding:8px 16px;
+    transition:0.3s;
   }
   nav a:hover,nav a.active{
-    background:#0055cc;color:#fff;box-shadow:0 4px 12px rgba(0,85,204,0.25);
+    background:#0055cc;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(0,85,204,0.25);
   }
 
   .page{display:none;padding:25px;opacity:0;transform:translateX(30px);transition:all 0.7s ease;}
   .active-page{display:block;opacity:1;transform:translateX(0);}
 
   /* Carrossel */
-  .carousel{position:relative;width:100%;overflow:hidden;border-radius:12px;cursor:pointer;}
+  .carousel{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    border-radius:12px;
+    cursor:pointer;
+  }
   .carousel img{
-    width:100%;border-radius:12px;position:absolute;top:0;left:0;opacity:0;
+    width:100%;
+    border-radius:12px;
+    position:absolute;
+    top:0;left:0;
+    opacity:0;
     transition:opacity 1.5s ease-in-out;
   }
   .carousel img.active{opacity:1;position:relative;}
 
   /* Resultados */
   .result-box{
-    background:rgba(0,85,204,0.05);border:1px solid #0055cc;
-    border-radius:12px;padding:20px;margin-bottom:20px;
+    background:rgba(0,85,204,0.05);
+    border:1px solid #0055cc;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
   }
   h2{color:#0055cc;font-size:1.3rem;font-weight:700;margin-bottom:10px;}
   h3{color:#003c99;margin-top:15px;}
   p{line-height:1.6;margin:10px 0;}
-  ul{margin-left:25px;margin-top:8px;} li{margin-bottom:4px;}
+  ul{margin-left:25px;margin-top:8px;}li{margin-bottom:4px;}
 
   /* Fotos */
   .photo-section{
-    background:rgba(0,85,204,0.05);border:1px solid #0055cc;
-    border-radius:12px;padding:20px;margin-bottom:20px;
-    opacity:0;transform:scale(0.97);transition:all 0.6s ease;cursor:pointer;
+    background:rgba(0,85,204,0.05);
+    border:1px solid #0055cc;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    opacity:0;
+    transform:scale(0.97);
+    transition:all 0.6s ease;
+    cursor:pointer;
   }
   .photo-section.show{opacity:1;transform:scale(1);}
   .photo-section h3{
-    font-size:12pt;font-weight:700;color:#0055cc;text-align:center;margin-bottom:10px;
+    font-size:12pt;
+    font-weight:700;
+    color:#0055cc;
+    text-align:center;
+    margin-bottom:10px;
   }
   .photo-section img{
-    width:100%;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    width:100%;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
     transition:transform 0.3s ease;
   }
   .photo-section img:hover{transform:scale(1.03);}
+
   @media(max-width:768px){
     header{flex-direction:column;}
     header img{height:60px;}
@@ -91,19 +140,45 @@
 
   /* Lightbox */
   .lightbox{
-    position:fixed;top:0;left:0;width:100%;height:100%;
-    background:rgba(0,0,0,0.8);display:flex;
-    align-items:center;justify-content:center;
-    opacity:0;visibility:hidden;transition:opacity 0.4s ease;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.85);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.4s ease;
     z-index:999;
   }
   .lightbox.active{opacity:1;visibility:visible;}
   .lightbox img{
-    max-width:90%;max-height:90%;border-radius:12px;
-    box-shadow:0 8px 24px rgba(255,255,255,0.2);
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    box-shadow:0 8px 24px rgba(255,255,255,0.3);
     animation:zoomIn 0.5s ease;
   }
   @keyframes zoomIn{from{transform:scale(0.8);}to{transform:scale(1);}}
+
+  .nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(255,255,255,0.2);
+    color:white;
+    font-size:2rem;
+    font-weight:bold;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:background 0.3s;
+    user-select:none;
+  }
+  .nav-btn:hover{background:rgba(255,255,255,0.4);}
+  #prevBtn{left:5%;}
+  #nextBtn{right:5%;}
 </style>
 </head>
 
@@ -123,8 +198,8 @@
   <!-- Página 1 -->
   <div id="page1" class="page active-page">
     <div class="carousel" onclick="openLightbox(event)">
-      <img src="torneio.jpg" class="active" alt="Torneio ETMPAN">
-      <img src="top12.jpg" alt="Top 12 ETMPAN">
+      <img src="torneio.jpeg" class="active" alt="Torneio ETMPAN">
+      <img src="top12.jpeg" alt="Top 12 ETMPAN">
     </div>
   </div>
 
@@ -133,7 +208,7 @@
     <div class="result-box">
       <h2>🏓 ETMPAN encerra 2024 e abre 2025 com resultados espetaculares</h2>
       <p>
-        A <strong>ETMPAN – Escola de Tênis de Mesa Professor Ângelo Neto</strong> finalizou a temporada 2024 com grandes conquistas e iniciou 2025 com disputas emocionantes, consolidando-se como referência no tênis de mesa baiano.
+        A <strong>ETMPAN – Escola de Tênis de Mesa Professor Ângelo Neto</strong> encerrou 2024 com conquistas marcantes e iniciou 2025 com jogos de altíssimo nível técnico, consolidando-se como referência do tênis de mesa baiano.
       </p>
 
       <h3>🏆 Paulo Carneiro é o Campeão do Ano 2024 — Tricampeão ETMPAN</h3>
@@ -144,63 +219,32 @@
       </ul>
 
       <h3>🌟 Destaques da Temporada 2024</h3>
-      <p><strong>Thiago Silva</strong> e <strong>Inigmar Veras</strong> foram reconhecidos como os <strong>Destaques do Ano</strong>, representando a nova geração de talentos da ETMPAN.</p>
-
-      <h3>🥇 TOP 12 – Etapa Final 2024</h3>
-      <ul>
-        <li>🏆 Campeão: <strong>Paulo Carneiro</strong></li>
-        <li>🥈 Vice-Campeão: <strong>Anderson Nascimento</strong></li>
-        <li>🥉 3º Lugar: <strong>Gilton Lima</strong></li>
-        <li>🥉 3º Lugar: <strong>Eliel Barbosa</strong></li>
-      </ul>
-
-      <p>
-        Anderson e Eliel também se destacaram — Anderson foi vice do Top 12 e campeão da 1ª Divisão; Eliel, campeão da 2ª Divisão e terceiro do Top 12, com resultados excepcionais.
-      </p>
-
-      <h3>⚡ 1ª Etapa 2025</h3>
-      <h4>1ª Divisão</h4>
-      <ul>
-        <li>🏆 Campeão: <strong>Anderson Nascimento</strong></li>
-        <li>🥈 Vice-Campeão: <strong>Saulo Feitosa</strong></li>
-        <li>🥉 3º Lugar: <strong>Paulo Carneiro</strong></li>
-        <li>🥉 3º Lugar: <strong>Inigmar Veras</strong></li>
-      </ul>
-
-      <h4>2ª Divisão</h4>
-      <ul>
-        <li>🏆 Campeão: <strong>Eliel Barbosa</strong></li>
-        <li>🥈 Vice-Campeão: <strong>Saulo Feitosa</strong></li>
-        <li>🥉 3º Lugar: <strong>Romilton Carvalho</strong></li>
-        <li>🥉 3º Lugar: <strong>Maurício Sampaio</strong></li>
-      </ul>
-
-      <h4>3ª Divisão</h4>
-      <ul>
-        <li>🏆 Campeão: <strong>Matheus Santana</strong></li>
-        <li>🥈 Vice-Campeão: <strong>Maurício Sampaio</strong></li>
-        <li>🥉 3º Lugar: <strong>Romilton Carvalho</strong></li>
-        <li>🥉 3º Lugar: <strong>Marcos Natal</strong></li>
-      </ul>
+      <p><strong>Thiago Silva</strong> e <strong>Inigmar Veras</strong> foram reconhecidos como os <strong>Destaques do Ano</strong> pelo desempenho técnico e espírito competitivo.</p>
     </div>
   </div>
 
   <!-- Página 3 -->
   <div id="page3" class="page">
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🏓 TOP 12</h3><img src="top12.jpg" alt="Top 12"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🥇 1ª DIVISÃO</h3><img src="1.jpg" alt="1ª Divisão"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🥈 2ª DIVISÃO</h3><img src="2.jpg" alt="2ª Divisão"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🥉 3ª DIVISÃO</h3><img src="3.jpg" alt="3ª Divisão"></div>
-    <div class="photo-section" onclick="openLightbox(event)"><h3>🌟 DESTAQUES 2024</h3><img src="destaque.jpg" alt="Destaques 2024"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🏓 TOP 12</h3><img src="top.jpeg" alt="Top 12 ETMPAN"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🥇 1ª DIVISÃO</h3><img src="1.jpeg" alt="1ª Divisão"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🥈 2ª DIVISÃO</h3><img src="2.jpeg" alt="2ª Divisão"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🥉 3ª DIVISÃO</h3><img src="3.jpeg" alt="3ª Divisão"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🌟 DESTAQUES 2024</h3><img src="destaque.jpeg" alt="Destaques ETMPAN 2024"></div>
+    <div class="photo-section" onclick="openLightbox(event)"><h3>🏆 CAMPEÃO DO ANO</h3><img src="campeao.jpeg" alt="Campeão ETMPAN 2024"></div>
   </div>
 </div>
 
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox" id="lightbox">
+  <span id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&#10094;</span>
   <img src="" alt="Imagem ampliada">
+  <span id="nextBtn" class="nav-btn" onclick="changeImage(1)">&#10095;</span>
 </div>
 
 <script>
+let galleryImages = [];
+let currentIndex = 0;
+
 function showPage(pageNumber){
   const pages=document.querySelectorAll('.page');
   pages.forEach(p=>p.classList.remove('active-page'));
@@ -232,6 +276,8 @@ const lightboxImg=lightbox.querySelector('img');
 
 function openLightbox(e){
   if(e.target.tagName==='IMG'){
+    galleryImages = Array.from(document.querySelectorAll('.carousel img, .photo-section img'));
+    currentIndex = galleryImages.indexOf(e.target);
     lightboxImg.src=e.target.src;
     lightbox.classList.add('active');
   }
@@ -239,6 +285,14 @@ function openLightbox(e){
 function closeLightbox(){
   lightbox.classList.remove('active');
   lightboxImg.src='';
+}
+lightbox.addEventListener('click', e=>{
+  if(e.target===lightbox) closeLightbox();
+});
+
+function changeImage(direction){
+  currentIndex=(currentIndex+direction+galleryImages.length)%galleryImages.length;
+  lightboxImg.src=galleryImages[currentIndex].src;
 }
 </script>
 </body>
